@@ -9,7 +9,10 @@ graphQLSchema('./test/fixtures/petstore.json').then(schema => {
     return {
       schema,
       context: {
-        GQLProxyBaseUrl: 'http://petstore.swagger.io/v2'
+        GQLProxyBaseUrl: 'http://petstore.swagger.io/v2',
+        //BearerToken: 'Bearer xxxxxx',
+        //PfxCertFile: __dirname + '/certificate.pfx',
+        //PfxPassphraseFile: __dirname + '/password.p12'
       },
       graphiql: true
     };
