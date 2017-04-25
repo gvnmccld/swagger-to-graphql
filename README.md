@@ -1,3 +1,9 @@
+# Token and Certificate Authorization
+
+Added options to include a bearer token or client certificates to authorize with the backend webservice.  Also removed a (seemingly) unnecessary extra wrapper around the data returend ("viewer") to clean up the response a little.
+
+---
+
 # Swagger2graphQL
 
 Swagger2graphQL wraps your existing Swagger schema to GraphQL types where resolvers perform HTTP requests to certain real endpoints.
@@ -18,7 +24,12 @@ graphQLSchema('./petstore.json').then(schema => {
     return {
       schema,
       context: {
-        GQLProxyBaseUrl: API_BASE_URL
+        GQLProxyBaseUrl: API_BASE_URL,
+        //BearerToken: 'Bearer xxx',
+        //PfxCertFile: __dirname + '/client.pfx',
+        //PfxPassphraseFile: __dirname + '/client.p12',
+        //CrtFile: __dirname + '/client.crt',
+        //KeyFile: __dirname + '/client.key
       },
       graphiql: true
     };
