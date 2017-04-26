@@ -1,6 +1,16 @@
-# Token and Certificate Authorization
+# Fixes from Mainline
 
-Added options to include a bearer token or client certificates to authorize with the backend webservice.  Also removed a (seemingly) unnecessary extra wrapper around the data returend ("viewer") to clean up the response a little.
+## Token and Certificate Authorization
+
+Added options to include a bearer token or client certificates to authorize with the backend webservice.  Supports .pfx/.p12, .cer/.key and Bearer Tokens.  Also forces Accept: application/json in case that's not the default.
+
+## Removing extra markup from response
+
+The response object jammed all of the data into a sub object "viewer" which seems unnecessary, removing that.
+
+## Parameterless endpoints bug
+
+An endpoint with no parameters would throw an error before even attempting to call the endpoint, added a small check here but upstream (node-request-by-swagger) should probably fix this.
 
 ---
 
